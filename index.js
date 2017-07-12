@@ -24,7 +24,8 @@ app.get('/', function(req, res) {
 		res.write(iframe2);
 	}
     else {
-        res.write('ajoutez ?url1&url2 aux paramètres');
+        res.write('<a href="http://10.92.104.214:3000/?url1=http://leure.epfl.ch&url2=http://10.92.104.248:8081/test-web-wordpress.epfl.ch/v1-testwp/reme.html">test me</a>');
+
     }
     res.end();
 })
