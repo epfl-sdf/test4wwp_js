@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+    <head>
+    <meta charset="utf-8">
+    <title>Comparateur</title>
+    </head>
+    <body>
+    
+    <div id="div1">
+        <text>
+            HEY
+        </text>
+        <iframe id="ifr1" src="http://epfl.ch" width="600" height="1000" scrolling="no"></iframe>
+    </div>
+    <div id="div2">
+        <iframe id="ifr2" src="http://epfl.ch" width="600" height="1000"></iframe>
+    </div>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $("#div1").scroll(function () {
+                $("#div2").scrollTop($("#div1").scrollTop());
+        });
+        $("#div2").scroll(function () {
+                $("#div1").scrollTop($("#div2").scrollTop());
+        });
+    });
+    </script>
+    </body>
+    </html>
