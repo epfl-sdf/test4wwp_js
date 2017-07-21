@@ -1,10 +1,12 @@
-var frame1 = document.getElementById('frame1');
-var frame2 = document.getElementById('frame2');
+window.addEventListener("message", receiveMessage, false);
+function receiveMessage(event)
+{
+    frame1_window = document.getElementById('frame1').contentWindow;
+    frame2_window = document.getElementById('frame2').contentWindow;
 
-frame1.contentWindow.onscroll = function(e) {
-  frame2.contentWindow.scrollTo(0,frame1.contentWindow.scrollY);
-};
-
-frame2.contentWindow.onscroll = function(e) {
-  frame1.contentWindow.scrollTo(0,frame2.contentWindow.scrollY);
-};
+    if (event.source === frame1_window) {
+        frame2_window.postMessage(event.data, "*");
+    } else {
+        frame1_window.postMessage(event.data, "*");
+    }
+}
